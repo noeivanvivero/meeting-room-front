@@ -1,0 +1,40 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Create Reservation</h3>
+        </div>
+        <div class="card-body">
+            
+            <form [formGroup]="form">
+               
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input formControlName="date" id="date" type="date" class="form-control" name="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="reservedFrom">Reserved from</label>
+                    <input [(ngModel)]="reservation.reservedFrom"  [ngModelOptions]="{standalone: true}" type="time" class="form-control" id="reservedFrom" name="reservedFrom" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservedUntil">Reserved until</label>
+                    <input [(ngModel)]="reservation.reservedUntil"  [ngModelOptions]="{standalone: true}" type="time" class="form-control" id="reservedUntil" name="reservedUntil" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservedFor">Guest Name:</label>
+                    <input [(ngModel)]="reservation.reservedFor"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" name="reservedFor">
+                </div>
+                <div class="form-group">
+                    <label for="reservedFor">Room:</label>
+                    <select formControlName="rooms" id="rooms" class="form-control">
+                        <option *ngFor="let rom of rooms; let i = index" [value]="rooms[i].id">
+                          {{rooms[i].name}}
+                        </option>
+                      </select>
+                </div>
+                <button (click)="createReservation()" class="btn btn-primary" style="margin-top: 10px;">Save</button>
+                <button (click)="cancelCreation()" class="btn btn-danger" style="margin-top: 10px; margin-left: 10px;">Cancel</button>
+                
+            </form>
+        </div>
+    </div>
+</div>

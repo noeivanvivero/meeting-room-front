@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Free Meeting Rooms</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Available From</th>
+                        <th>Available Until</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let room of freerooms">
+                        <td>{{room.id}}</td>
+                        <td>{{room.name}}</td>
+                        <td>{{room.description}}</td>
+                        <td>{{room.availableFrom}}</td>
+                        <td>{{room.availableUntil}}</td>
+                        <td>
+                            <button (click)= "reserveFreeMeetingRoom(room)" class="btn btn-primary">Reserve</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 10px;">
+    <div class="card">
+        <div class="card-header">
+            <h3>All Meeting Rooms</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Available From</th>
+                        <th>Available Until</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let room of allrooms" class="teaxt-center">
+                        <td>{{room.id}}</td>
+                        <td>{{room.name}}</td>
+                        <td>{{room.description}}</td>
+                        <td>{{room.availableFrom}}</td>
+                        <td>{{room.availableUntil}}</td>
+                        <td>
+                            <button (click)= "updateMeetingRoom(room)" class="btn btn-warning">Update</button>
+                            <button (click)= "deleteMeetingRoom(room)" class="btn btn-danger" style="margin-left: 20px;">Delete</button>
+                            <button (click)= "checkMeetingRoomReservations(room)" class="btn btn-secondary" style="margin-left: 20px;">Reservations</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            <button (click)= "createMeetingRoom()" class="btn btn-primary">Create</button>
+        </div>
+    </div>
+</div>
